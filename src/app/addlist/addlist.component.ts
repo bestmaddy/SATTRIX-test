@@ -44,29 +44,29 @@ export class AddlistComponent implements OnInit {
   };
 
   AddList(data: any) {
-  console.log('data', data.value);
+    console.log('data', data.value);
 
-  const storedData = sessionStorage.getItem('productList');
-  const userList = storedData ? JSON.parse(storedData) : [];
+    const storedData = sessionStorage.getItem('productList');
+    const userList = storedData ? JSON.parse(storedData) : [];
 
-  if (data.valid) {
-    if (this.isUpdate && this.indexToUpdate > -1) {
-      userList[this.indexToUpdate] = { ...data.value };
-      alert('Data updated successfully.');
-      this.isUpdate = false;
-      this.indexToUpdate = -1;
+    if (data.valid) {
+      if (this.isUpdate && this.indexToUpdate > -1) {
+        userList[this.indexToUpdate] = { ...data.value };
+        alert('Data updated successfully.');
+        this.isUpdate = false;
+        this.indexToUpdate = -1;
+      } else {
+        userList.push({ ...data.value });
+        alert('Data added successfully.');
+        this.listForm.resetForm();
+      }
+
+      sessionStorage.setItem('productList', JSON.stringify(userList));
+      this.listForm.resetForm();
     } else {
-      userList.push({ ...data.value });
-      alert('Data added successfully.');
+      console.log('Fill all required fields');
     }
-
-    sessionStorage.setItem('productList', JSON.stringify(userList));
-    this.listForm.resetForm();
-  } else {
-    console.log('Fill all required fields');
   }
-}
-
 
   reset(UserForm: NgForm) {
     UserForm.resetForm();
