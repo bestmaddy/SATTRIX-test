@@ -1,0 +1,26 @@
+<div class="material">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto me-auto">
+      <legend><b>Add List</b></legend>
+    </div>
+    <div class="col-auto">
+         <button
+        class="btn btn-primary"
+        (click)="navigateTo('addlist')"
+      >
+        Add List
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="navigateTo('list')"
+
+      >
+        List
+      </button>
+      <button style="float: right" class="btn btn-danger" (click)="logout()">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>
+<router-outlet> </router-outlet>

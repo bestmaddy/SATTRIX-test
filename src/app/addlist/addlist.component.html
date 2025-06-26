@@ -1,0 +1,53 @@
+
+<div class="material">
+  <form class="row g-3" #listForm="ngForm" (ngSubmit)="AddList(listForm)">
+    <div class="mb-3 col-md-6">
+      <label class="form-label">Product Name</label>
+      <input
+        type="text"
+        name="productName"
+        #productName="ngModel"
+        class="form-select"
+        [(ngModel)]="addlist.productName"
+        id=""
+        required
+      />
+      <div
+        *ngIf="!productName?.valid && (productName?.dirty || productName?.touched)"
+      >
+        <div *ngIf="productName.errors?.['required']">productName is required</div>
+      </div>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label class="form-label">Product Type</label>
+      <input
+        type="text"
+        name="productType"
+        #productType="ngModel"
+        class="form-select"
+        [(ngModel)]="addlist.productType"
+        id=""
+        required
+      />
+      <div *ngIf="!productType?.valid && (productType?.dirty || productType?.touched)">
+        <div *ngIf="productType.errors?.['required']">productType is required</div>
+      </div>
+    </div>
+    <div class="col-md-12 d-flex align-items-center justify-content-center">
+      <button
+        type="button"
+        class="btn btn-danger me-2"
+        (click)="reset(listForm)"
+      >
+        Clear
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!listForm.valid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

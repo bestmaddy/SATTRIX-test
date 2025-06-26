@@ -1,0 +1,44 @@
+<div class="container-fluid loginout text-center">
+  <div class="row logindiv">
+    <div class="col-md-6 loginimg">
+      <img src="../assets/loinimg.png" alt="Login images" srcset="" class="" />
+    </div>
+    <div class="col-md-6">
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <legend class="" style="color: #3226ae; font-size: 30px">
+          <b>Welcome Back </b>
+        </legend>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            [(ngModel)]="loginDto.email"
+            #username="ngModel"
+            name="username"
+            required
+            email
+            aria-describedby="emailHelp"
+            placeholder="Enter Your Email"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            #password="ngModel"
+            [(ngModel)]="loginDto.password"
+            name="password"
+            required
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-primary" routerLink="/registerUser">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

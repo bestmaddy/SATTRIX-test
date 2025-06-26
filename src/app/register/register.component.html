@@ -1,0 +1,94 @@
+<div class="material">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto me-auto">
+      <legend><b>Register</b></legend>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" routerLink="/login">
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+<div class="material">
+  <form class="row g-3" #UserForm="ngForm" (ngSubmit)="register(UserForm)">
+    <div class="mb-3 col-md-6">
+      <label class="form-label">First Name</label>
+      <input
+        type="text"
+        name="FirstName"
+        #FirstName="ngModel"
+        class="form-select"
+        [(ngModel)]="Userdto.FirstName"
+        id=""
+        required
+      />
+      <div
+        *ngIf="!FirstName?.valid && (FirstName?.dirty || FirstName?.touched)"
+      >
+        <div *ngIf="FirstName.errors?.['required']">FirstName is required</div>
+      </div>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label class="form-label">Last Name</label>
+      <input
+        type="text"
+        name="LastName"
+        #LastName="ngModel"
+        class="form-select"
+        [(ngModel)]="Userdto.LastName"
+        id=""
+        required
+      />
+      <div *ngIf="!LastName?.valid && (LastName?.dirty || LastName?.touched)">
+        <div *ngIf="LastName.errors?.['required']">LastName is required</div>
+      </div>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label class="form-label">Email Id</label>
+      <input
+        type="Email"
+        name="Email"
+        #Email="ngModel"
+        class="form-select"
+        [(ngModel)]="Userdto.Email"
+        id=""
+        required
+      />
+      <div *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)">
+        <div *ngIf="Email.errors?.['required']">Email is required</div>
+      </div>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label class="form-label">Password</label>
+      <input
+        type="password"
+        name="Password"
+        #Password="ngModel"
+        class="form-select"
+        [(ngModel)]="Userdto.Password"
+        id=""
+        required
+      />
+      <div *ngIf="!Password?.valid && (Password?.dirty || Password?.touched)">
+        <div *ngIf="Password.errors?.['required']">Password is required</div>
+      </div>
+    </div>
+    <div class="col-md-12 d-flex align-items-center justify-content-center">
+      <button
+        type="button"
+        class="btn btn-danger me-2"
+        (click)="register(UserForm)"
+      >
+        Clear
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!UserForm.valid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

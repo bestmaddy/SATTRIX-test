@@ -1,0 +1,20 @@
+<h3>Records List</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rec of records; let i = index">
+      <td>{{ rec.productName }}</td>
+      <td>{{ rec.productType }}</td>
+      <td>
+        <button (click)="edit(i)">Update</button>
+        <button (click)="delete(i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
